@@ -1,5 +1,5 @@
 export class Game { //everything of this class go to game.component.ts in new Game()
-    public players: string[] = [];
+    public players: string[] = ['Hans', 'Freddy', 'Peter'];
     public stack: string[] = [];
     public playedCards: string[] = [];
     public currentPlayer: number = 0;
@@ -18,7 +18,7 @@ export class Game { //everything of this class go to game.component.ts in new Ga
 }
 
 
-function shuffle(array) {
+function shuffle(array : any) { //ERROR Parameter 'array' implicitly has an 'any' type. // SOLUTION: add :any after array
     let currentIndex = array.length, randomIndex;
 
     // While there remain elements to shuffle...
