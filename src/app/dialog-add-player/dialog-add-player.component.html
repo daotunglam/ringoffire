@@ -1,4 +1,6 @@
 <h1 mat-dialog-title>Add new player</h1>
+
+
 <div mat-dialog-content>
   <p>Please enter the name of a player</p>
   <mat-form-field appearance="fill">
@@ -6,7 +8,11 @@
     <input matInput [(ngModel)]="name">
   </mat-form-field>
 </div>
+
+
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">No Thanks</button>
-  <button mat-button [mat-dialog-close]="name" cdkFocusInitial>Ok</button>
+  <button mat-button [disabled]="name.length == 0" [mat-dialog-close]="name" cdkFocusInitial>Ok</button>
+  <!-- if no name is added, btn ok is not clickable. -->
+  <!-- a warning on console: a11y.mjs:1022 Element matching '[cdkFocusInitial]' is not focusable. => it is not a big problem, just ignor.  -->
 </div>
