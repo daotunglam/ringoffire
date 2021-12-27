@@ -1,5 +1,5 @@
 export class Game { //everything of this class go to game.component.ts in new Game()
-    public players: string[] = ['Hans', 'Freddy', 'Peter'];
+    public players: string[] = [];
     public stack: string[] = [];
     public playedCards: string[] = [];
     public currentPlayer: number = 0;
