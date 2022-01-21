@@ -1,29 +1,110 @@
-.start-screen{
+#startScreen {
     width: 100%;
     height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background-image: url(/assets/img/bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 
-    .startbox{
-        width: 100%;
-        height: 100vh;
-    }
-    .startBtn{
+    .startBtn {
+        z-index: 2;
         position: absolute;
-        width: 140px;
-        @media (min-width:480px) {
-            width: 240px;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        top: 70%;
+        width: fit-content;
+        cursor: pointer;
+        &:hover img {
+            filter: brightness(1.2);
         }
-        @media (min-width:1024px) {
-            width: 320px;
+        img {
+            width: 13rem;
         }
-        top: 75vh;
-        left: 8vw;
+        p {
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+    }
 
-        &:hover{
-            filter: brightness(1.1);
-            cursor: pointer;
+    #logo {
+        z-index: 1;
+        color: white;
+        white-space: nowrap;
+        letter-spacing: 1rem;
+        font-size: 1.8rem;
+        font-weight: bold;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+    }
+    #stack-backOfCard {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+        display: flex;
+        .backOfCard {
+            transform: rotate(-30deg);
+            box-shadow: -4px -4px 8px black;
+        }
+    }
+
+    #stack-cardA {
+        position: absolute;
+        top: 3rem;
+        left: -1rem;
+        .playingCard-style {
+            box-shadow: -4px 4px 8px black;
+        }
+        .cardA-1 {
+            transform: rotate(10deg);
+        }
+        .cardA-2 {
+            transform: rotate(40deg) translate(-1rem, 3rem);
+        }
+        .cardA-3 {
+            transform: rotate(20deg) translate(-6rem, 7rem);
+        }
+    }
+
+    #stack-cardK {
+        position: absolute;
+        bottom: 0rem;
+        right: 0rem;
+        .playingCard-style {
+            box-shadow: -4px 4px 8px black;
+        }
+        .cardK-1 {
+            transform: rotate(-30deg) translate(0rem, -3rem);
+        }
+        .cardK-2 {
+            transform: rotate(-20deg) translate(0rem, -2rem);
+        }
+        .cardK-3 {
+            transform: rotate(-10deg) translate(-1rem, -1rem);
+        }
+    }
+
+    @media (min-width: 0) {
+        .playingCard-style {
+            width: calc(var(--playingCard-w) * 0.12);
+            height: calc(var(--playingCard-h) * 0.12);
+        }
+    }
+    @media (min-width: 480px) {
+        .playingCard-style {
+            width: calc(var(--playingCard-w) * 0.14);
+            height: calc(var(--playingCard-h) * 0.14);
+        }
+    }
+    @media (min-width: 800px) {
+        .playingCard-style {
+            width: calc(var(--playingCard-w) * 0.16);
+            height: calc(var(--playingCard-h) * 0.16);
         }
     }
 }

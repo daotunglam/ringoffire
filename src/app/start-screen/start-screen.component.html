@@ -1,4 +1,28 @@
-<div class="start-screen">
-    <img class="startbox" src="/assets/img/startbox.png">
-    <img (click)="newGame()" class="startBtn" src="/assets/img/startBtn.png">
+<div id="startScreen">
+
+    <div id="logo">RING OF FIRE</div>
+    
+    <div id="stack-backOfCard">
+        <div class="backOfCard playingCard-style"></div>
+        <div class="backOfCard playingCard-style"></div>
+        <div class="backOfCard playingCard-style"></div>
+    </div>
+
+    <div class="startBtn" (click)="newGame()">
+        <img src="/assets/img/startBtn.png">
+        <p>S T A R T</p>
+    </div>
+
+    <div id="stack-cardA">
+        <img src="/assets/img/cards/ace_1.png" class="playingCard-style cardA-1">
+        <img src="/assets/img/cards/diamonds_1.png" class="playingCard-style cardA-2">
+        <img src="/assets/img/cards/hearts_1.png" class="playingCard-style cardA-3">
+    </div>
+
+    <div id="stack-cardK">
+        <img src="/assets/img/cards/ace_13.png" class="playingCard-style cardK-1">
+        <img src="/assets/img/cards/diamonds_13.png" class="playingCard-style cardK-2">
+        <img src="/assets/img/cards/hearts_13.png" class="playingCard-style cardK-3">
+    </div>
+
 </div>

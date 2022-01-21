@@ -1,3 +1,14 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+:root{
+    --playingCard-w: 822px;
+    --playingCard-h: 1122px;
+}
+
+.playingCard-style{
+    background-image: linear-gradient(to right bottom,white, #454755,#454755, white );
+    box-sizing: border-box;
+    border-radius: 7%;
+}
