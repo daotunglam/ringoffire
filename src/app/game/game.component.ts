@@ -27,6 +27,7 @@ export class GameComponent implements OnInit {
 
   ngOnInit(): void {
     this.newGame();
+    this.openDialog();
   }
 
 

@@ -4,12 +4,15 @@
     background-image: url(/assets/img/bg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
     .card-stack {
-        position: relative;
+        position: absolute;
+        bottom: 14rem;
+        left: 10rem;
+        @media (min-width: 800px) {
+            bottom: 14rem;
+            left: 20rem;
+        }
         img {
             position: absolute;
             width: 92px;
@@ -18,54 +21,64 @@
             }
             border-radius: 12px;
         }
-        .top-card{
+        .top-card {
             cursor: pointer;
             transition: all 125ms ease-in-out;
-            &:hover{
+            &:hover {
                 transform: scale(1.1) translateY(-10px);
             }
         }
 
-        .played-card{
+        .played-card {
             right: 25px;
-            transform: scale(1.2) translateX(100px) translateY(-180px) rotate(-10deg);
+            transform: scale(1.2) translateX(2rem) translateY(-180px) rotate(-10deg);
         }
 
-        .pick-card{
+        @media (min-width: 800px) {
+            .played-card {
+                right: 25px;
+                transform: scale(1.2) translateX(100px) translateY(-180px) rotate(-10deg);
+            }
+        }
+
+        .pick-card {
             animation: pick-card-animation 0.4s ease-in-out;
             transform: scale(1.2) translateX(100px) translateY(-180px) rotate(-10deg);
         }
         @keyframes pick-card-animation {
-            0%{
+            0% {
                 transform: scale(1);
             }
-            25%{
+            25% {
                 transform: scaleX(0);
             }
-            50%{
-                transform: scale(1.7);
+            50% {
+                transform: scale(1.7) translateY(-2rem);
             }
-            100%{
-                transform: scale(1.2) translateX(100px) translateY(-180px) rotate(-10deg);
+            100% {
+                transform: scale(1.2) translateX(2rem) translateY(-180px) rotate(-10deg);
+                @media (min-width: 800px) {
+                    transform: scale(1.2) translateX(100px) translateY(-180px) rotate(-10deg);
+                }
             }
         }
     }
 }
 
-.player-position{
+.player-position {
     position: absolute;
     right: 0;
 }
 
-.btn-add{
+.btn-add {
     position: absolute;
-    right:32px;
+    right: 32px;
     bottom: 32px;
 }
 
-.pin-bottom{
+.pin-top {
     position: absolute;
-    bottom: 32px;
+    top: 2rem;
     left: 10vw;
     right: 10vw;
 }

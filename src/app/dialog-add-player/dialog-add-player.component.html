@@ -5,8 +5,12 @@
   <p>Please enter the name of a player</p>
   <mat-form-field appearance="fill">
     <mat-label>Name</mat-label>
-    <input matInput [(ngModel)]="name">
+    <input matInput [(ngModel)]="name" maxlength="8">
   </mat-form-field>
+  <!-- <mat-form-field appearance="fill">
+    <mat-label>Avatar</mat-label>
+    <input matInput accept="image/*" type="file">
+  </mat-form-field> -->
 </div>
 
 

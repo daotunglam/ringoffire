@@ -1,14 +1,33 @@
+html,
+body {
+    height: 100%;
+}
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-size: 16px;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-:root{
+:root {
     --playingCard-w: 822px;
     --playingCard-h: 1122px;
 }
 
-.playingCard-style{
-    background-image: linear-gradient(to right bottom,white, #454755,#454755, white );
+.playingCard-style {
+    background-image: linear-gradient(to right bottom, white, #454755, #454755, white);
     box-sizing: border-box;
     border-radius: 7%;
+
+    @media (min-width: 0) {
+        width: calc(var(--playingCard-w) * 0.12);
+        height: calc(var(--playingCard-h) * 0.12);
+    }
+    @media (min-width: 480px) {
+        width: calc(var(--playingCard-w) * 0.14);
+        height: calc(var(--playingCard-h) * 0.14);
+    }
+    @media (min-width: 800px) {
+        width: calc(var(--playingCard-w) * 0.16);
+        height: calc(var(--playingCard-h) * 0.16);
+    }
 }

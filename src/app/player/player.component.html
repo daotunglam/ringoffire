@@ -1,5 +1,7 @@
-<div class="player" 
-[class.player-active]="playerActive">
-    <img src="/assets/img/profileImg/Naruto.png">
-    <span>{{name}}</span>
-</div>
+
+<mat-card class="player" [class.player-active]="playerActive">
+    <mat-card-header>
+        <img mat-card-avatar class="avatar" src="/assets/img/profileImg/Naruto.png">
+        <mat-card-title>{{name}}</mat-card-title>
+    </mat-card-header>
+</mat-card>

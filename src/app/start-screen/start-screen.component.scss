@@ -57,6 +57,7 @@
         position: absolute;
         top: 3rem;
         left: -1rem;
+        opacity: 0.7;
         .playingCard-style {
             box-shadow: -4px 4px 8px black;
         }
@@ -75,6 +76,7 @@
         position: absolute;
         bottom: 0rem;
         right: 0rem;
+        opacity: 0.7;
         .playingCard-style {
             box-shadow: -4px 4px 8px black;
         }
@@ -86,25 +88,6 @@
         }
         .cardK-3 {
             transform: rotate(-10deg) translate(-1rem, -1rem);
-        }
-    }
-
-    @media (min-width: 0) {
-        .playingCard-style {
-            width: calc(var(--playingCard-w) * 0.12);
-            height: calc(var(--playingCard-h) * 0.12);
-        }
-    }
-    @media (min-width: 480px) {
-        .playingCard-style {
-            width: calc(var(--playingCard-w) * 0.14);
-            height: calc(var(--playingCard-h) * 0.14);
-        }
-    }
-    @media (min-width: 800px) {
-        .playingCard-style {
-            width: calc(var(--playingCard-w) * 0.16);
-            height: calc(var(--playingCard-h) * 0.16);
         }
     }
 }
