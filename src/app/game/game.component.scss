@@ -10,8 +10,10 @@
         bottom: 14rem;
         left: 10rem;
         @media (min-width: 800px) {
-            bottom: 14rem;
             left: 20rem;
+        }
+        @media (min-width: 1024px) {
+            left: 40rem;
         }
         img {
             position: absolute;
@@ -33,10 +35,9 @@
             right: 25px;
             transform: scale(1.2) translateX(3rem) translateY(-15rem) rotate(-10deg);
         }
-
         .pick-card {
             animation: pick-card-animation 0.4s ease-in-out;
-            transform: scale(1.2) translateX(3rem) translateY(-180px) rotate(-10deg);
+            transform: scale(1.2) translateX(3rem) translateY(-15rem) rotate(-10deg);
         }
         @keyframes pick-card-animation {
             0% {
@@ -50,6 +51,35 @@
             }
             100% {
                 transform: scale(1.2) translateX(3rem) translateY(-15rem) rotate(-10deg);
+            }
+        }
+
+        
+        @media (max-height: 480px) {
+            .played-card {
+                right: 25px;
+                transform: scale(1.2) translateX(10rem) translateY(0rem) rotate(10deg);
+            }
+            .pick-card {
+                animation: pick-card-animation-h480 0.4s ease-in-out;
+                transform: scale(1.2) translateX(10rem) translateY(0rem) rotate(10deg);
+            }
+        }
+        @keyframes pick-card-animation-h480 {
+            0% {
+                transform: scale(1);
+                z-index: 0;
+            }
+            25% {
+                transform: scaleX(0);
+            }
+            50% {
+                transform: scale(1.7) translateY(-2rem);
+                z-index: 1;
+            }
+            100% {
+                transform: scale(1.2) translateX(10rem) translateY(0rem) rotate(10deg);
+                z-index: 1;
             }
         }
     }
