@@ -31,19 +31,12 @@
 
         .played-card {
             right: 25px;
-            transform: scale(1.2) translateX(2rem) translateY(-180px) rotate(-10deg);
-        }
-
-        @media (min-width: 800px) {
-            .played-card {
-                right: 25px;
-                transform: scale(1.2) translateX(100px) translateY(-180px) rotate(-10deg);
-            }
+            transform: scale(1.2) translateX(3rem) translateY(-15rem) rotate(-10deg);
         }
 
         .pick-card {
             animation: pick-card-animation 0.4s ease-in-out;
-            transform: scale(1.2) translateX(100px) translateY(-180px) rotate(-10deg);
+            transform: scale(1.2) translateX(3rem) translateY(-180px) rotate(-10deg);
         }
         @keyframes pick-card-animation {
             0% {
@@ -56,18 +49,33 @@
                 transform: scale(1.7) translateY(-2rem);
             }
             100% {
-                transform: scale(1.2) translateX(2rem) translateY(-180px) rotate(-10deg);
-                @media (min-width: 800px) {
-                    transform: scale(1.2) translateX(100px) translateY(-180px) rotate(-10deg);
-                }
+                transform: scale(1.2) translateX(3rem) translateY(-15rem) rotate(-10deg);
             }
         }
     }
 }
 
-.player-position {
+.players-container {
     position: absolute;
     right: 0;
+    bottom: 6rem; /*over the btn-add*/
+    height: 60vh; /*just height from the btn-add to bottom of game-info*/
+    overflow-y: scroll; /*if there are to many players, they will be scrolled*/
+    & > * {
+        margin: 0.1rem; /*every player has a small distance with the other*/
+    }
+    display: flex;
+    flex-direction: column;
+    //the players places begin from bottom to top:
+    & > :first-child { margin-top: auto } // justify-content:flex-end cause overflow-y:scroll not working.
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    & {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+    }
 }
 
 .btn-add {

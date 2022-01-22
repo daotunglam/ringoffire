@@ -1,9 +1,11 @@
-<app-player
-*ngFor="let player of game.players; let i=index" 
-[name]="player" [ngStyle]="{'top.px': 400 + (i*60)}"
-[playerActive]="i == game.currentPlayer"
-class="player-position">
-</app-player>
+<div class="players-container">
+
+    <app-player *ngFor="let player of game.players; let i=index" 
+    [name]="player" 
+    [playerActive]="i == game.currentPlayer">
+    </app-player>
+
+</div>
 <!--
     List of players is the array player.
     i is the index of player in this list.  
