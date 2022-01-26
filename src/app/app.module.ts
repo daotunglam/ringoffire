@@ -23,6 +23,9 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { EditPlayerComponent } from './edit-player/edit-player.component';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { ClipboardModule } from '@angular/cdk/clipboard';
 
 @NgModule({
   declarations: [
@@ -46,6 +49,9 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatCardModule,
     MatTooltipModule,
     MatGridListModule,
+    MatMenuModule,
+    MatSnackBarModule,
+    ClipboardModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
     AngularFireModule.initializeApp(environment.firebase),

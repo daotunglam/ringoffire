@@ -1,11 +1,8 @@
 <div class="players-container">
 
-    <app-player *ngFor="let player of gameOnLocal.players; let i=index" 
-    [avatar] = "gameOnLocal.avatars[i]"
-    [name]="player" 
-    [playerActive]="i == gameOnLocal.currentPlayer"
-    matTooltip="Edit" matTooltipPosition="left"
-    (click)="editPlayer(i)">
+    <app-player *ngFor="let player of gameOnLocal.players; let i=index" [avatar]="gameOnLocal.avatars[i]"
+        [name]="player" [playerActive]="i == gameOnLocal.currentPlayer" matTooltip="Edit" matTooltipPosition="left"
+        (click)="editPlayer(i)">
     </app-player>
 
 </div>
@@ -28,7 +25,8 @@
         <!-- Cards stack -->
         <img [ngStyle]="{'right.px': i*5}" *ngFor="let c of gameOnLocal.dummyStack; let i = index;"
             src="/assets/img/cards/card_cover.png">
-        <img (click)="play()" *ngIf="gameOnLocal.dummyStack.length > 0" class="top-card" style="right:25px;" src="/assets/img/cards/card_cover.png">
+        <img (click)="play()" *ngIf="gameOnLocal.dummyStack.length > 0" class="top-card" style="right:25px;"
+            src="/assets/img/cards/card_cover.png">
 
         <!-- Played cards -->
         <img *ngFor="let card of gameOnLocal.playedCards" class="played-card" src="/assets/img/cards/{{card}}.png">
@@ -48,15 +46,28 @@
 
 
 
-<button mat-stroked-button color="accent" matTooltip="Refresh stack" matTooltipPosition="right" (click)="refreshStack()" class="btn-refreshStack">
+<button mat-stroked-button color="accent" matTooltip="Refresh stack" matTooltipPosition="above" (click)="refreshStack()"
+    class="btn-refreshStack">
     <mat-icon>autorenew</mat-icon>
 </button>
 
-<button mat-stroked-button color="accent" matTooltip="Reset game" matTooltipPosition="right" (click)="resetGame()" class="btn-resetGame">
+<button mat-stroked-button color="accent" matTooltip="Reset game" matTooltipPosition="above" (click)="resetGame()"
+    class="btn-resetGame">
     <mat-icon>replay_circle_filled</mat-icon>
 </button>
 
-<button mat-stroked-button color="accent" matTooltip="Add player" matTooltipPosition="left" (click)="openDialog()" class="btn-add">
-    <mat-icon>add</mat-icon>
+<button mat-stroked-button color="accent" matTooltip="Invite link for other players" matTooltipPosition="above"
+    [matMenuTriggerFor]="menu" class="btn-inviteLink">
+    <mat-icon>link</mat-icon>
 </button>
+<mat-menu #menu="matMenu">
+    <button mat-menu-item matTooltip='{{inviteLink}}' [cdkCopyToClipboard]='inviteLink'>
+        Copy to Clipboard
+    </button>
+</mat-menu>
 
+
+<button mat-stroked-button color="accent" matTooltip="Add player" matTooltipPosition="above" (click)="openDialog()"
+    class="btn-add">
+    <mat-icon>group_add</mat-icon>
+</button>

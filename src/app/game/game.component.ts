@@ -5,6 +5,7 @@ import { DialogAddPlayerComponent } from '../dialog-add-player/dialog-add-player
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { ActivatedRoute } from '@angular/router';
 import { EditPlayerComponent } from '../edit-player/edit-player.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-game',
@@ -16,16 +17,20 @@ import { EditPlayerComponent } from '../edit-player/edit-player.component';
 
 export class GameComponent implements OnInit {
 
+  inviteLink = window.location.href;
+
   gameOnLocal!: Game; //constructor doesn't accept game:Game; Error-message: "Property 'game' has no initializer and is not definitely assigned in the constructor."
   //constructor doesn't accept game:Game; Error-message: "Property 'game' has no initializer and is not definitely assigned in the constructor."
 
   gameId!: string;
 
 
-  constructor(private firestore: AngularFirestore, public dialog: MatDialog, private route: ActivatedRoute) { }
+  constructor(private firestore: AngularFirestore, public dialog: MatDialog, private route: ActivatedRoute, private _snackBar: MatSnackBar) { }
 
 
   ngOnInit(): void {
+    console.log(this.inviteLink);
+
     this.generateGameOnLocal();
     this.getDataFromFirebase();
 
@@ -181,6 +186,10 @@ export class GameComponent implements OnInit {
     this.gameOnLocal.players = [];
     this.gameOnLocal.avatars = [];
     this.refreshStack();
+  }
+
+  getLink() {
+
   }
 
 }
