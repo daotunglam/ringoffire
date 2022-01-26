@@ -16,7 +16,6 @@ import { EditPlayerComponent } from '../edit-player/edit-player.component';
 
 export class GameComponent implements OnInit {
 
-
   gameOnLocal!: Game; //constructor doesn't accept game:Game; Error-message: "Property 'game' has no initializer and is not definitely assigned in the constructor."
   //constructor doesn't accept game:Game; Error-message: "Property 'game' has no initializer and is not definitely assigned in the constructor."
 
@@ -75,6 +74,7 @@ export class GameComponent implements OnInit {
           this.gameOnLocal.players = gameFromFirebase.players;
           this.gameOnLocal.avatars = gameFromFirebase.avatars;
           this.gameOnLocal.stack = gameFromFirebase.stack;
+          this.gameOnLocal.dummyStack = gameFromFirebase.dummyStack;
           this.gameOnLocal.playedCards = gameFromFirebase.playedCards;
           this.gameOnLocal.currentPlayer = gameFromFirebase.currentPlayer;
           this.gameOnLocal.pickCardAnimation = gameFromFirebase.pickCardAnimation;
@@ -85,6 +85,12 @@ export class GameComponent implements OnInit {
 
   play() {
     if (this.gameOnLocal.players.length >= 2) {
+      if (this.gameOnLocal.stack.length == this.gameOnLocal.dummyStack.length &&
+        this.gameOnLocal.dummyStack.length > 0
+      ) {
+        this.gameOnLocal.dummyStack.splice(0, 1)
+        this.saveGame()
+      }
       this.takeCard()
     }
     else {
@@ -164,6 +170,7 @@ export class GameComponent implements OnInit {
    * gets all cards back to the stack, shuffles them and saves on firebase.
    */
   refreshStack() {
+    this.gameOnLocal.dummyStack = [0, 1, 2, 3, 4];
     this.gameOnLocal.playedCards = [];
     this.gameOnLocal.makeStackFull();
     this.gameOnLocal.shuffle(this.gameOnLocal.stack);

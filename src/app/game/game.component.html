@@ -26,15 +26,15 @@
     <div class="card-stack">
 
         <!-- Cards stack -->
-        <img [ngStyle]="{'right.px': i*5}" *ngFor="let c of [0,1,2,3,4]; let i = index;"
+        <img [ngStyle]="{'right.px': i*5}" *ngFor="let c of gameOnLocal.dummyStack; let i = index;"
             src="/assets/img/cards/card_cover.png">
-        <img (click)="play()" class="top-card" style="right:25px;" src="/assets/img/cards/card_cover.png">
+        <img (click)="play()" *ngIf="gameOnLocal.dummyStack.length > 0" class="top-card" style="right:25px;" src="/assets/img/cards/card_cover.png">
 
         <!-- Played cards -->
         <img *ngFor="let card of gameOnLocal.playedCards" class="played-card" src="/assets/img/cards/{{card}}.png">
 
         <!-- Current card -->
-        <img (click)="takeCard()" *ngIf="gameOnLocal.pickCardAnimation" class="pick-card" style="right:25px;"
+        <img *ngIf="gameOnLocal.pickCardAnimation" class="pick-card" style="right:25px;"
             src="/assets/img/cards/{{gameOnLocal.currentCard}}.png">
     </div>
 </div>

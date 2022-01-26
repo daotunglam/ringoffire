@@ -3,6 +3,7 @@ export class Game {
     public players: string[] = [];
     public avatars: string[] = [];
     public stack: string[] = [];
+    public dummyStack = [0, 1, 2, 3, 4];
     public playedCards: string[] = [];
     public currentPlayer: number = 0;
     public pickCardAnimation = false;
@@ -23,6 +24,7 @@ export class Game {
             players: this.players,
             avatars: this.avatars,
             stack: this.stack,
+            dummyStack: this.dummyStack,
             playedCards: this.playedCards,
             currentPlayer: this.currentPlayer,
             pickCardAnimation: this.pickCardAnimation,
@@ -62,6 +64,3 @@ export class Game {
     }
 
 }
-
-
-// function 
