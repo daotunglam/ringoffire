@@ -1,0 +1,10 @@
+#listProfileImgs{
+    width: 280px;
+    img{
+        height: 100%;
+        cursor: pointer;
+        &:hover{
+            filter: brightness(1.2);
+        }
+    }
+}

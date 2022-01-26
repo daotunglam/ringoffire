@@ -1,0 +1,12 @@
+<h1>CHOOSE AN AVATAR</h1>
+<mat-grid-list id="listProfileImgs" cols="4" rowHeight="5rem" >
+    <mat-grid-tile *ngFor="let avatar of allAvatars" >
+        <img src="./assets/img/profileImg/{{ avatar }}" [mat-dialog-close]="avatar">
+    </mat-grid-tile>
+</mat-grid-list>
+
+
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button mat-button [mat-dialog-close]="'DELETE'" cdkFocusInitial  mat-stroked-button color="warn">Delete player</button>
+  </div>

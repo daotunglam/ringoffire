@@ -15,7 +15,14 @@ import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { GameInfoComponent } from './game-info/game-info.component';
 import { MatCardModule } from '@angular/material/card';
-
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { EditPlayerComponent } from './edit-player/edit-player.component';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
@@ -25,6 +32,7 @@ import { MatCardModule } from '@angular/material/card';
     PlayerComponent,
     DialogAddPlayerComponent,
     GameInfoComponent,
+    EditPlayerComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,6 +44,12 @@ import { MatCardModule } from '@angular/material/card';
     MatInputModule,
     BrowserAnimationsModule,
     MatCardModule,
+    MatTooltipModule,
+    MatGridListModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore()),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

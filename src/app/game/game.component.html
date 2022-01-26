@@ -1,8 +1,11 @@
 <div class="players-container">
 
-    <app-player *ngFor="let player of game.players; let i=index" 
+    <app-player *ngFor="let player of gameOnLocal.players; let i=index" 
+    [avatar] = "gameOnLocal.avatars[i]"
     [name]="player" 
-    [playerActive]="i == game.currentPlayer">
+    [playerActive]="i == gameOnLocal.currentPlayer"
+    matTooltip="Edit" matTooltipPosition="left"
+    (click)="editPlayer(i)">
     </app-player>
 
 </div>
@@ -25,14 +28,14 @@
         <!-- Cards stack -->
         <img [ngStyle]="{'right.px': i*5}" *ngFor="let c of [0,1,2,3,4]; let i = index;"
             src="/assets/img/cards/card_cover.png">
-        <img (click)="takeCard()" class="top-card" style="right:25px;" src="/assets/img/cards/card_cover.png">
+        <img (click)="play()" class="top-card" style="right:25px;" src="/assets/img/cards/card_cover.png">
 
         <!-- Played cards -->
-        <img *ngFor="let card of game.playedCards" class="played-card" src="/assets/img/cards/{{card}}.png">
+        <img *ngFor="let card of gameOnLocal.playedCards" class="played-card" src="/assets/img/cards/{{card}}.png">
 
         <!-- Current card -->
-        <img (click)="takeCard()" *ngIf="pickCardAnimation" class="pick-card" style="right:25px;"
-            src="/assets/img/cards/{{currentCard}}.png">
+        <img (click)="takeCard()" *ngIf="gameOnLocal.pickCardAnimation" class="pick-card" style="right:25px;"
+            src="/assets/img/cards/{{gameOnLocal.currentCard}}.png">
     </div>
 </div>
 
@@ -40,12 +43,20 @@
 
 
 
-<app-game-info [card]="currentCard" class="pin-top"></app-game-info>
+<app-game-info [card]="gameOnLocal.currentCard" class="pin-top"></app-game-info>
 
 
 
 
+<button mat-stroked-button color="accent" matTooltip="Refresh stack" matTooltipPosition="right" (click)="refreshStack()" class="btn-refreshStack">
+    <mat-icon>autorenew</mat-icon>
+</button>
 
-<button mat-fab color="primary" (click)="openDialog()" class="btn-add">
+<button mat-stroked-button color="accent" matTooltip="Reset game" matTooltipPosition="right" (click)="resetGame()" class="btn-resetGame">
+    <mat-icon>replay_circle_filled</mat-icon>
+</button>
+
+<button mat-stroked-button color="accent" matTooltip="Add player" matTooltipPosition="left" (click)="openDialog()" class="btn-add">
     <mat-icon>add</mat-icon>
 </button>
+

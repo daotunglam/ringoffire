@@ -22,6 +22,7 @@
                 width: 120px;
             }
             border-radius: 12px;
+            box-shadow: 2px 2px 2px black;
         }
         .top-card {
             cursor: pointer;
@@ -33,11 +34,11 @@
 
         .played-card {
             right: 25px;
-            transform: scale(1.2) translateX(3rem) translateY(-15rem) rotate(-10deg);
+            transform: scale(1.2) translateX(3rem) translateY(-12rem) rotate(-10deg);
         }
         .pick-card {
             animation: pick-card-animation 0.4s ease-in-out;
-            transform: scale(1.2) translateX(3rem) translateY(-15rem) rotate(-10deg);
+            transform: scale(1.2) translateX(3rem) translateY(-12rem) rotate(-10deg);
         }
         @keyframes pick-card-animation {
             0% {
@@ -50,7 +51,7 @@
                 transform: scale(1.7) translateY(-2rem);
             }
             100% {
-                transform: scale(1.2) translateX(3rem) translateY(-15rem) rotate(-10deg);
+                transform: scale(1.2) translateX(3rem) translateY(-12rem) rotate(-10deg);
             }
         }
 
@@ -108,15 +109,30 @@
     }
 }
 
+.btn-refreshStack{
+    position: absolute;
+    left: 2rem;
+    bottom: 2rem;
+}
+.btn-resetGame{
+    position: absolute;
+    left: 6rem;
+    bottom: 2rem;
+}
 .btn-add {
     position: absolute;
-    right: 32px;
-    bottom: 32px;
+    right: 2rem;
+    bottom: 2rem;
 }
 
 .pin-top {
     position: absolute;
-    top: 2rem;
-    left: 10vw;
-    right: 10vw;
+    top: 0;
+    left: 0;
+    right: 0;
+    @media (min-width: 480px) {
+        top: 2rem;
+        left: 10vw;
+        right: 10vw;
+    }
 }
